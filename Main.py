@@ -68,9 +68,9 @@ from sklearn.metrics import mean_squared_error
 #=====================================
 #=====================================
 
-
-data=pd.read_excel('data.xlsx')
+data=pd.read_excel('Experimental_data.xlsx')
 data.columns
+# Index(['Additive', 'Temp', 'Time', 'L*', 'a*', 'b*'], dtype='object')
 
 
 data.head()
