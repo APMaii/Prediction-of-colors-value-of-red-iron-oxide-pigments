@@ -1,4 +1,4 @@
-#🎨 Prediction and Optimization of Red Iron Oxide Pigments
+# 🎨 **Prediction and Optimization of Red Iron Oxide Pigments**
 
 This project is based on the article titled **"Prediction and Optimization of Red Iron Oxide"**. In this study, we synthesize red iron oxide pigments from mill scale through a simple, economical, and environmentally friendly method. The project explores how synthesis parameters influence pigment color using machine learning.
 
