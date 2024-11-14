@@ -20,7 +20,7 @@ The resulting powders were characterized using:
 
 It was observed that the amount of oxidizing agent, calcination time, and temperature affect particle size and morphology, leading to different shades of red.
 
-##🤖 Machine Learning Approach
+## 🤖 Machine Learning Approach
 
 Six supervised machine learning models were employed to predict the color values (L*, a*, b*) based on process parameters:
 - **Support Vector Machine (SVM)🥇**
@@ -32,7 +32,7 @@ Six supervised machine learning models were employed to predict the color values
 
 Using seven-fold cross-validation, the **SVM model** achieved the highest predictive accuracy with a Mean Absolute Percentage Error (MAPE) of 87.92%.
 
-##📂 Repository Contents
+## 📂 Repository Contents
 
 - **main.py**: Script for data preprocessing, cleaning, and training all six machine learning models with grid search.
 - **result_graph.py**: Script to generate all visualizations, including:
@@ -44,12 +44,12 @@ Using seven-fold cross-validation, the **SVM model** achieved the highest predic
 - **Best_Hyperparameters_for_MLP.py**: Optimal hyperparameters for the Multilayer Perceptron model.
 - **Best_Hyperparameters_for_SVM.py**: Optimal hyperparameters for the Support Vector Machine model.
 
-##📊 Visualizations
+## 📊 Visualizations
 
 - **Parameter Space Plot**: Displays the distribution and relationships of input parameters.
 - **Final Prediction 3D Plot**: Depicts the SVM model's predictions across parameter configurations.
 
-##🚀 Installation and Usage
+## 🚀 Installation and Usage
 
 1. **Clone the repository**:
    ```bash
@@ -70,10 +70,10 @@ Using seven-fold cross-validation, the **SVM model** achieved the highest predic
 
 
 
-##🎯 Results
+## 🎯 Results
 
 The SVM model proved effective in predicting color values (L*, a*, b*) across various process parameters, demonstrating an average MAPE of 87.92%. The findings highlight the impact of calcination temperature, oxidizing agent content, and calcination time on color outcomes.
 
-##📜 License
+## 📜 License
 
 This project is licensed under the MIT License. See the `LICENSE` file for more details.
