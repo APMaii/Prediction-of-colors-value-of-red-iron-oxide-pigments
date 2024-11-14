@@ -44,10 +44,7 @@ Using seven-fold cross-validation, the **SVM model** achieved the highest predic
 - **Best_Hyperparameters_for_MLP.py**: Optimal hyperparameters for the Multilayer Perceptron model.
 - **Best_Hyperparameters_for_SVM.py**: Optimal hyperparameters for the Support Vector Machine model.
 
-## 📊 Visualizations
 
-- **Parameter Space Plot**: Displays the distribution and relationships of input parameters.
-- **Final Prediction 3D Plot**: Depicts the SVM model's predictions across parameter configurations.
 
 ## 🚀 Installation and Usage
 
@@ -73,6 +70,19 @@ Using seven-fold cross-validation, the **SVM model** achieved the highest predic
 ## 🎯 Results
 
 The SVM model proved effective in predicting color values (L*, a*, b*) across various process parameters, demonstrating an average MAPE of 87.92%. The findings highlight the impact of calcination temperature, oxidizing agent content, and calcination time on color outcomes.
+
+
+## 📊 Visualizations
+
+#### Parameter Space Plot 🗺️
+This plot shows the distribution and relationships of input parameters across the dataset.
+
+![Parameter Space Plot](images/parameter_space.png)
+
+#### Final Prediction 3D Plot 📈
+This 3D plot illustrates the SVM model's color predictions across various parameter configurations.
+
+![Final Prediction 3D Plot](images/prediction_3d_plot.png)
 
 ## 📜 License
 
