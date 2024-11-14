@@ -34,13 +34,13 @@ Using seven-fold cross-validation, the **SVM model** achieved the highest predic
 
 ## 📂 Repository Contents
 
-- **main.py**: Script for data preprocessing, cleaning, and training all six machine learning models with grid search.
-- **result_graph.py**: Script to generate all visualizations, including:
+- **Main.py**: Script for data preprocessing, cleaning, and training all six machine learning models with grid search.
+- **Result_Graph.py**: Script to generate all visualizations, including:
   - Parameter space exploration
   - Statistical descriptive plots
   - 3D plot of best model predictions
-- **experimental_data.xlsx**: Dataset used in the study.
-- **hyper_parameters_space.py**: Defines hyperparameter ranges for each model.
+- **Experimental_data.xlsx**: Dataset used in the study.
+- **Hyper_Parameters_Space.py**: Defines hyperparameter ranges for each model.
 - **Best_Hyperparameters_for_MLP.py**: Optimal hyperparameters for the Multilayer Perceptron model.
 - **Best_Hyperparameters_for_SVM.py**: Optimal hyperparameters for the Support Vector Machine model.
 
