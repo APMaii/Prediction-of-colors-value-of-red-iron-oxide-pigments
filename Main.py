@@ -5,6 +5,7 @@ In The name of GOD
 
 
 
+Author : Ali Pilehvar Meibody
 
 '''
 
@@ -71,8 +72,7 @@ from sklearn.metrics import mean_squared_error
 
 data=pd.read_excel('Experimental_data.xlsx')
 data.columns
-# Index(['Additive', 'Temp', 'Time', 'L*', 'a*', 'b*'], dtype='object')
-
+#Index(['Redox Agent', 'Temperature', 'Time', 'L*', 'a*', 'b*'], dtype='object')
 
 data.head()
 
@@ -88,7 +88,7 @@ print(f'we find {diff} duplicated row')
 
 
 
-x=np.array(data[['additive_0','additive_1','additive_2','Temp','Time']])
+x=np.array(data[['Redox Agent','Temperature','Time']])
 
 
 y1=np.array(data[['L*']]).reshape(-1,1)
@@ -96,9 +96,6 @@ y2=np.array(data[['a*']]).reshape(-1,1)
 y3=np.array(data[['b*']]).reshape(-1,1)
 
 
-
-fold1=KFold(n_splits=7,shuffle=True,random_state=120)
-fold2=KFold(n_splits=8,shuffle=True,random_state=120)
 
 
 
@@ -120,12 +117,14 @@ for i in [y1,y2,y3]:
     model = LR()
     pipe = Pipeline([("poly", pf()),("scaler", MinMaxScaler()), ("model", model)])
     regressor = TTR(regressor=pipe, transformer=StandardScaler())
+    fold1=KFold(n_splits=7,shuffle=True,random_state=120)
+
     myparams={'regressor__poly__degree':[1,2,3,4,5],
               'regressor__scaler': [None,StandardScaler(),MinMaxScaler(),RobustScaler()],
               'transformer': [None,StandardScaler(),MinMaxScaler(),RobustScaler()]}
     gs = GridSearchCV(regressor, param_grid=myparams, cv=fold1, scoring='neg_mean_absolute_percentage_error')
     gs.fit(x,i)
-    print(gs.best_score_)
+    print(1+gs.best_score_)
 
 
 
@@ -134,6 +133,10 @@ MAPE:
 l*
 a*
 b*
+
+0.8375812120068975
+0.8686214789385969
+0.7876532664102112
 
 '''
 
@@ -144,6 +147,7 @@ for i in [y1,y2,y3]:
     model = KNN()
     pipe = Pipeline([("poly", pf()),("scaler", None), ("model", model)])
     regressor = TTR(regressor=pipe, transformer=StandardScaler())
+    fold1=KFold(n_splits=7,shuffle=True,random_state=120)
     myparams={'regressor__poly__degree':[1,2,3,4,5],
         'regressor__scaler': [None,StandardScaler(),MinMaxScaler(),RobustScaler()],
               "regressor__model__n_neighbors": np.arange(1,16),
@@ -151,12 +155,18 @@ for i in [y1,y2,y3]:
               'transformer': [None,StandardScaler(),MinMaxScaler(),RobustScaler()]}
     gs = GridSearchCV(regressor, param_grid=myparams, cv=fold1, scoring='neg_mean_absolute_percentage_error',n_jobs=-1)
     gs.fit(x,i)
-    print(gs.best_score_)
+    print(1+gs.best_score_)
 
 
 '''
-******
+******\
+l*
+a*
+b*
 
+0.8652393977152333
+0.8847161043126747
+0.8138227849271908
 
 
 '''
@@ -173,6 +183,7 @@ for i in [y1,y2,y3]:
     model = DecisionTreeRegressor()
     pipe_model = Pipeline([("scaler", MinMaxScaler()), ("model", model)])
     regressor = TTR(regressor=pipe_model, transformer=StandardScaler())
+    fold1=KFold(n_splits=7,shuffle=True,random_state=120)
     myparams={'regressor__scaler': [None,StandardScaler(),MinMaxScaler()],
               'regressor__model__max_depth': np.arange(1,6),
               'regressor__model__criterion': ['absolute_error', 'friedman_mse', 'squared_error'],
@@ -183,7 +194,7 @@ for i in [y1,y2,y3]:
 
     gs = GridSearchCV(regressor, param_grid=myparams, cv=fold1, scoring='neg_mean_absolute_percentage_error',n_jobs=-1)
     gs.fit(x,i)
-    print(gs.best_score_)
+    print(1+gs.best_score_)
     
 '''
 ****
@@ -198,7 +209,7 @@ for i in [y1,y2,y3]:
     model = RandomForestRegressor(random_state=42,n_jobs=-1)
     pipe_model = Pipeline([("scaler", MinMaxScaler()), ("model", model)])
     regressor = TTR(regressor=pipe_model, transformer=StandardScaler())
-    
+    fold1=KFold(n_splits=7,shuffle=True,random_state=120)
     myparams={'regressor__scaler': [None,StandardScaler(),MinMaxScaler(),RobustScaler()],
               'regressor__model__n_estimators': np.arange(1,11),
               'regressor__model__max_depth': np.arange(1,16),
@@ -208,7 +219,7 @@ for i in [y1,y2,y3]:
               'transformer': [None,StandardScaler(),MinMaxScaler(),RobustScaler()]}
     gs = GridSearchCV(regressor, param_grid=myparams, cv=fold1, scoring='neg_mean_absolute_percentage_error',n_jobs=-1)
     gs.fit(x,i)
-    print(gs.best_score_)
+    print(1+gs.best_score_)
     
     
     
@@ -231,9 +242,8 @@ for i in [y1,y2,y3]:
     model = SVR()
     pipe_model = Pipeline([("scaler", MinMaxScaler()), ("model", model)])
     regressor = TTR(regressor=pipe_model, transformer=StandardScaler())
+    fold1=KFold(n_splits=7,shuffle=True,random_state=120)
     
-    
-    fold1=KFold(n_splits=5,shuffle=True,random_state=91)
     myparams=myparams={'regressor__scaler': [None,StandardScaler(),MinMaxScaler(),RobustScaler()],
               'regressor__model__kernel': ['linear','poly','rbf','sigmoid'],
               'regressor__model__C': [0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100],
@@ -243,49 +253,7 @@ for i in [y1,y2,y3]:
     
     gs = GridSearchCV(regressor, param_grid=myparams, cv=fold1, scoring='neg_mean_absolute_percentage_error',n_jobs=-1)
     gs.fit(x,i)
-    print(gs.best_score_)
-    
-    
-'''
-*****
-
-
-
-
-'''
-    
-
-
-
-#---------SVR---------------
-for i in [y1,y2,y3]:
-    model = SVR()
-    pipe_model = Pipeline([("scaler", MinMaxScaler()), ("model", model)])
-    regressor = TTR(regressor=pipe_model, transformer=StandardScaler())
-    
-    
-    fold1=KFold(n_splits=5,shuffle=True,random_state=91)
-    myparams=myparams={'regressor__scaler': [None,StandardScaler(),MinMaxScaler(),RobustScaler()],
-              'regressor__model__kernel': ['linear','poly','rbf','sigmoid'],
-              'regressor__model__C': [0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100],
-              'regressor__model__gamma': ['scale','auto'],
-              'regressor__model__epsilon':[0.001,0.01,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9],
-              'transformer': [None,StandardScaler(),MinMaxScaler(),RobustScaler()]}
-    
-    gs = GridSearchCV(regressor, param_grid=myparams, cv=fold1, scoring='neg_mean_absolute_percentage_error',n_jobs=-1)
-    gs.fit(x,i)
-    print(gs.best_score_)
-    
-    
-'''
-*****
-
-
-
-
-'''
-    
-
+    print(1+gs.best_score_)
 
 
 
@@ -296,8 +264,7 @@ for i in [y1,y2,y3]:
     pipe_model = Pipeline([("poly", pf()),("scaler", MinMaxScaler()), ("model", model)])
     regressor = TTR(regressor=pipe_model, transformer=StandardScaler())
     
-    
-    fold1=KFold(n_splits=5,shuffle=True,random_state=49)
+    fold1=KFold(n_splits=7,shuffle=True,random_state=120)
     myparams=myparams={'regressor__scaler': [None,Normalizer(),MinMaxScaler(),StandardScaler()],
               'regressor__model__solver': ['adam','sgd'],
               'regressor__model__hidden_layer_sizes': [(10,),(100,),(1,1),(2,1),(3,1),(4,1),(5,1),(2,2),(3,2),(4,2),(5,2),(6,2),(3,3),(4,3),(5,3),(6,2),(7,2),(10,5),(10,10),(15,10),(100,100),(3,2,1),(4,3,2),(5,4,3),(6,5,4),(7,6,5),(10,5,1),(15,10,5)],
@@ -308,7 +275,7 @@ for i in [y1,y2,y3]:
     
     gs = GridSearchCV(regressor, param_grid=myparams, cv=fold1, scoring='neg_mean_absolute_percentage_error',n_jobs=-1)
     gs.fit(x,i)
-    print(gs.best_score)
+    print(1+gs.best_score)
 
 '''
 ****
@@ -316,5 +283,7 @@ for i in [y1,y2,y3]:
 
 
 '''
+
+
 
     
