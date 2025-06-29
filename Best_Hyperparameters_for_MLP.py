@@ -2,9 +2,7 @@
 In The Name of GOD
 Author : Ali Pilehvar Meibody
 
-
-Content : Best Hyperparameters for MLP
-
+ Best Hyperparameters for MLP
 
 '''
 
