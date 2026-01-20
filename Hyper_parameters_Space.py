@@ -8,7 +8,6 @@ Content : Hyperparameters space for each Supervised Machine learning algorithem
 
 '''
 
-
 #--------------------- LR
 
 myparams={'regressor__scaler': [None,StandardScaler(),MinMaxScaler(),RobustScaler()],
