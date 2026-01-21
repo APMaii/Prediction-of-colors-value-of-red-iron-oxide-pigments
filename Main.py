@@ -7,7 +7,6 @@ Author : Ali Pilehvar Meibody
 MAIN Workflow
 '''
 
-
 #=====================================
 #=====================================
 #-----IMPORTING libs--------
@@ -266,11 +265,3 @@ for i in [y1,y2,y3]:
     gs = GridSearchCV(regressor, param_grid=myparams, cv=fold1, scoring='neg_mean_absolute_percentage_error',n_jobs=-1)
     gs.fit(x,i)
     print(1+gs.best_score)
-
-'''
-****
-
-
-
-'''
-  
