@@ -5,8 +5,6 @@ Author : Ali Pilehvar Meibody
  Best Hyperparameters for MLP
 
 '''
-
-
 #========================================
 #--------- L*----------------------------
 #========================================
@@ -18,8 +16,6 @@ best_params_={'regressor__model__activation': 'tanh',
  'regressor__scaler': MinMaxScaler(),
  'transformer': StandardScaler()}
 
-
-
 #========================================
 #--------- a*----------------------------
 #========================================
@@ -30,9 +26,6 @@ best_params_={'regressor__model__activation': 'relu',
  'regressor__model__solver': 'adam',
  'regressor__scaler': StandardScaler(),
  'transformer': StandardScaler()}
-
-
-
 
 #========================================
 #--------- b*----------------------------
