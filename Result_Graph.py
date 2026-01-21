@@ -3,7 +3,6 @@ In The Name of GOD
 Author : Ali Pilehvar Meibody
 
 '''
-
 #===========================================================
 #===========================================================
 'Importing Libs'
@@ -635,8 +634,4 @@ cbar.set_label(f'{yyy}')
 
 # Show the plot
 plt.show()
-
-
-
-
 
