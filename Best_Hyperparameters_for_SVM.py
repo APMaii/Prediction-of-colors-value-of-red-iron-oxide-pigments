@@ -7,8 +7,6 @@ Content : Best  Hyperparameters for SVM
 
 
 '''
-
-   
 #========================================
 #--------- L*----------------------------
 #========================================
@@ -19,8 +17,6 @@ best_params_={'regressor__model__C': 100,
  'regressor__scaler': StandardScaler(),
  'transformer': StandardScaler()}
 
-
-
 #========================================
 #--------- a*----------------------------
 #========================================
@@ -30,10 +26,6 @@ best_params_={'regressor__model__C': 60,
  'regressor__model__kernel': 'poly',
  'regressor__scaler': None,
  'transformer': StandardScaler()}
-
-
-
-
 
 #========================================
 #--------- b*----------------------------
