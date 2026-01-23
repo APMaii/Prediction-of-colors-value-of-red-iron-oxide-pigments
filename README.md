@@ -2,6 +2,14 @@
 
 This repository contains the implementation of a machine learning-based approach for predicting and optimizing red iron oxide pigment synthesis parameters. The work is based on research that synthesizes red iron oxide pigments from mill scale using a cost-effective and environmentally friendly methodology.
 
+## 🎯 Prediction Results
+
+The prediction plots showcase the model's ability to accurately predict color values (L*, a*, b*) based on synthesis parameters. These visualizations demonstrate the strong correlation between actual experimental measurements and model predictions, highlighting the effectiveness of the machine learning approach in capturing the complex relationships between process parameters and color outcomes.
+
+![Prediction Plots](images/predictions.png)
+
+*The prediction plots illustrate the relationship between actual and predicted color values, demonstrating model accuracy and prediction quality across the entire dataset. The close alignment between predicted and actual values validates the model's predictive capability.*
+
 ## Project Overview
 
 This study investigates the relationship between synthesis parameters and the resulting color properties of red iron oxide pigments. The research employs machine learning techniques to model and predict color values (L*, a*, b*) based on key process variables, enabling optimization of pigment production.
@@ -115,7 +123,7 @@ Ensure you have Python 3.x installed along with the following packages:
 
 2. **Generate Visualizations**:
    ```bash
-   python Result_Graph.py
+   python EDA_Graph.py
    ```
    This generates comprehensive visualizations including parameter space plots, statistical analyses, and model performance comparisons.
 
@@ -131,35 +139,44 @@ The Support Vector Machine model demonstrated superior predictive performance in
 
 ## Visualizations
 
-### Model Performance Metrics
+### 🗺️ Parameter Space Exploration
 
-The following figure presents comprehensive performance metrics comparing all six machine learning models across multiple evaluation criteria.
+The parameter space visualization maps the distribution and relationships of input parameters across the experimental dataset, providing insight into the design space coverage and parameter correlations.
+
+![Parameter Space Plot](images/parameter_space.png)
+
+*This visualization helps understand the experimental design space and identifies regions where additional data collection might be beneficial for model improvement.*
+
+
+### 📊 Model Performance Metrics
+
+Comprehensive performance metrics comparing all six machine learning models across multiple evaluation criteria. This analysis provides quantitative assessment of each model's performance, enabling informed selection of the optimal model for color prediction.
 
 ![Model Performance Metrics](images/metrics.png)
 
-### Spider Plots
+*Performance comparison across different evaluation metrics including R², MAE, MSE, and MAPE for all six models evaluated in this study.*
 
-Spider plots (radar charts) provide a multi-dimensional comparison of model performance across different metrics, enabling visual assessment of each model's strengths and weaknesses.
+---
+
+### 🕸️ Spider Plots (Radar Charts)
+
+Multi-dimensional visualization comparing model performance across different metrics using radar charts. These plots enable intuitive visual assessment of each model's strengths and weaknesses across various evaluation dimensions.
 
 ![Spider Plots](images/spyders.png)
 
-### Prediction Plots
+*Spider plots provide a comprehensive view of model performance, allowing easy identification of models that excel in specific metrics or demonstrate balanced performance across all criteria.*
 
-Prediction plots illustrate the relationship between actual and predicted color values, demonstrating model accuracy and prediction quality across the dataset.
+---
+### 🔍 SHAP Analysis
 
-![Prediction Plots](images/predictions.png)
-
-### SHAP Analysis
-
-SHAP (SHapley Additive exPlanations) analysis provides interpretability insights, showing the contribution of each input feature to the model's predictions. This analysis helps understand which process parameters most significantly influence color outcomes.
+SHAP (SHapley Additive exPlanations) analysis provides interpretability insights into the machine learning model's decision-making process. This analysis quantifies the contribution of each input feature (oxidizing agent content, calcination temperature, and calcination time) to the model's predictions, revealing which process parameters most significantly influence color outcomes.
 
 ![SHAP Analysis](images/SHAP.png)
 
-### Parameter Space Exploration
+*SHAP values illustrate feature importance and the direction of influence for each process parameter, providing actionable insights for optimizing pigment synthesis conditions.*
 
-The parameter space plot visualizes the distribution and relationships of input parameters across the experimental dataset, providing insight into the design space coverage.
+---
 
-![Parameter Space Plot](images/parameter_space.png)
 
 ## License
 
