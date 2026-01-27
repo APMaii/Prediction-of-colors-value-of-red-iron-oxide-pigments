@@ -4,8 +4,6 @@ Author : Ali Pilehvar Meibody
 
 
 Content : Best  Hyperparameters for SVM
-
-
 '''
 #========================================
 #--------- L*----------------------------
