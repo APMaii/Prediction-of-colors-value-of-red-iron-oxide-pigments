@@ -3,11 +3,8 @@ In The name of GOD
 
 Author : Ali Pilehvar Meibody
 
-
 MAIN Workflow
-
 '''
-
 #=====================================
 #=====================================
 #-----IMPORTING libs--------
@@ -486,16 +483,5 @@ Mean Absolute Error (MAE): 2.981299551105248
 Coefficient of Determination (R²): 0.5991503850625958
 Mean Absolute Percentage Error (MAPE): 0.16853414744530612
 '''
-
-
-
-
-
-
-
-
-
-
-
 
 
