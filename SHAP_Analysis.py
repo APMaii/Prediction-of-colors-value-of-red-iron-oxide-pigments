@@ -2,8 +2,7 @@
 In The Name of GOD
 Author : Ali Pilehvar Meibody
 
-
-SHAP ANalysis
+SHAP Analysis
 
 '''
 #===========================================================
