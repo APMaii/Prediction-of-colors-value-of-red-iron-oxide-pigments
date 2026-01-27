@@ -5,21 +5,17 @@ Author : Ali Pilehvar Meibody
 
 Content : Hyperparameters space for each Supervised Machine learning algorithem
 
-
 '''
+
 #--------------------- LR
 myparams={'regressor__scaler': [None,StandardScaler(),MinMaxScaler(),RobustScaler()],
           'transformer': [None,StandardScaler(),MinMaxScaler(),RobustScaler()]}
-
-
 
 #--------------------- KNN
 myparams={'regressor__scaler': [None,StandardScaler(),MinMaxScaler(),RobustScaler()],
           "regressor__model__n_neighbors": np.arange(1,16),
           'regressor__model__metric': ['braycurtis','canberra','chebyshev','cityblock','correlation','cosine','euclidean','minkowski','sqeuclidean','hamming'],
           'transformer': [None,StandardScaler(),MinMaxScaler(),RobustScaler()]}
-
-
 
 #--------------------- DT
 myparams={'regressor__scaler': [None,StandardScaler(),MinMaxScaler(),RobustScaler()],
@@ -29,8 +25,6 @@ myparams={'regressor__scaler': [None,StandardScaler(),MinMaxScaler(),RobustScale
           'regressor__model__min_samples_leaf': [0.1,0.3,0.5,0.7,0.9,1,2,3,4,5,6,7,8,9],
           'regressor__model__min_samples_split': [0.1,0.3,0.5,0.7,0.9,2,3,4,5,6,7,8,9],
           'transformer': [None,StandardScaler(),MinMaxScaler(),RobustScaler()]}
-
-
 
 #--------------------- RF
 myparams={'regressor__scaler': [None,StandardScaler(),MinMaxScaler(),RobustScaler()],
@@ -48,7 +42,6 @@ myparams={'regressor__scaler': [None,StandardScaler(),MinMaxScaler(),RobustScale
           'regressor__model__gamma': ['scale','auto'],
           'regressor__model__epsilon':[0.001,0.01,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9],
           'transformer': [None,StandardScaler(),MinMaxScaler(),RobustScaler()]}
-
 
 
 #------------------------ MLP
