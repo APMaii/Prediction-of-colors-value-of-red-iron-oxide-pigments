@@ -1,14 +1,10 @@
 """
 Created on Thu Jan 22 12:42:42 2026
 
-@author: apm
-
-
+@author: Ali Pilehvar Meibody
 Metrics Summary
 
 Spyder Plots
-
-
 """
 
 import pandas as pd
