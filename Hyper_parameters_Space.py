@@ -2,7 +2,6 @@
 In The Name of GOD
 Author : Ali Pilehvar Meibody
 
-
 Content : Hyperparameters space for each Supervised Machine learning algorithem
 
 '''
