@@ -120,7 +120,15 @@ header = ['Model', 'Target',
           'RMSE_mean', 'RMSE_std',
           'MAE_mean',  'MAE_std',
           'R2_mean',   'R2_std',
-          'MAPE_mean', 'MAPE_std']
+          'MAPE_mean', 'MAPE_std',
+          'Relative_RMSE_percent']
+
+# Mean target values from the experimental dataset (Experimental_data.xlsx).
+target_means = {
+    'L*': 23.162162,
+    'a*': 32.454054,
+    'b*': 24.329730,
+}
 
 with open(csv_path, 'w', newline='') as f:
     writer = csv.writer(f)
@@ -128,9 +136,12 @@ with open(csv_path, 'w', newline='') as f:
     for model in models:
         for target in targets:
             row = [model, target]
+            rmse_mean = metrics[model][target]['RMSE'][0]
             for metric in metric_names:
                 mean, std = metrics[model][target][metric]
                 row.extend([f'{mean:.4f}', f'{std:.4f}'])
+            relative_rmse = (rmse_mean / target_means[target]) * 100
+            row.append(f'{relative_rmse:.4f}')
             writer.writerow(row)
 
 print(f'CSV saved to {csv_path}')
