@@ -156,6 +156,8 @@ Comprehensive performance metrics comparing all six machine learning models acro
 
 *Performance comparison across different evaluation metrics including R², MAE, MSE, and MAPE for all six models evaluated in this study.*
 
+Normalized metrics are reported to facilitate comparison across L\*, a\*, and b\* which differ in scale and variance [cite: 10.1007/s00521-024-10726-w].
+
 ---
 
 ### 🕸️ Spider Plots (Radar Charts)
@@ -185,6 +187,10 @@ This project is licensed under the MIT License. See the `LICENSE` file for more 
 ## Citation
 
 If you use this code or methodology in your research, please cite the original article: "Prediction and Optimization of Red Iron Oxide"
+
+## References
+
+[1] [https://doi.org/10.1007/s00521-024-10726-w](https://doi.org/10.1007/s00521-024-10726-w)
 
 ## Contact
 
