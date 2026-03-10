@@ -73,6 +73,24 @@ def generate_bumpy():
 input_space = generate_bumpy()
 
 
+AXIS_LABEL_SIZE = 18
+TICK_LABEL_SIZE = 12
+TITLE_SIZE = 25
+CBAR_LABEL_SIZE = 15
+CBAR_TICK_SIZE = 11
+
+
+def apply_3d_labels(ax, z_label, title):
+    """Apply consistent, publication-readable 3D axis labels."""
+    ax.set_xlabel('Temperature (°C)', size=AXIS_LABEL_SIZE, labelpad=16, fontweight='bold')
+    ax.set_ylabel('Time (min)', size=AXIS_LABEL_SIZE, labelpad=14, fontweight='bold')
+    ax.set_zlabel(z_label, size=AXIS_LABEL_SIZE, labelpad=12, fontweight='bold')
+    ax.tick_params(axis='x', labelsize=TICK_LABEL_SIZE)
+    ax.tick_params(axis='y', labelsize=TICK_LABEL_SIZE)
+    ax.tick_params(axis='z', labelsize=TICK_LABEL_SIZE)
+    ax.set_title(title, size=TITLE_SIZE, fontweight='bold')
+
+
 
 
 
@@ -87,7 +105,7 @@ input_space = generate_bumpy()
 #---------------------
 
 #===========================================================
-'L* WITH best MLP'
+'L* WITH best SVM'
 #===========================================================
 yy=L
 yyy='L*'
@@ -131,14 +149,11 @@ ax = fig.add_subplot(111, projection='3d')
 scatter = ax.scatter(xx1,xx2,yy3,c=yy3, cmap='gist_gray', marker='o', norm=norm)
 #c=yy3
 
-# Set labels
-ax.set_xlabel('Temperature',size=12,labelpad=15, fontweight='bold')
-ax.set_ylabel('time',size=15,labelpad=12, fontweight='bold')
-ax.set_zlabel(f'{yyy}',size=15,labelpad=12, fontweight='bold')
-ax.set_title(f'{yyy}  for {add} Redox Agent',size=25, fontweight='bold')
+apply_3d_labels(ax, f'{yyy}', f'{yyy} for {add} Redox Agent')
 # Add a colorbar
 cbar = fig.colorbar(scatter, ax=ax, pad=0.1, shrink=0.8)
-cbar.set_label(f'{yyy}')
+cbar.set_label(f'{yyy}', fontsize=CBAR_LABEL_SIZE, fontweight='bold')
+cbar.ax.tick_params(labelsize=CBAR_TICK_SIZE)
 
 # Save and show the plot
 plt.savefig(f'{yyy}_{add}_RedoxAgent.png', dpi=600, bbox_inches='tight')
@@ -159,14 +174,11 @@ ax = fig.add_subplot(111, projection='3d')
 scatter = ax.scatter(xx1,xx2,yy3, c=yy3, cmap='gist_gray', marker='o', norm=norm)
 
 
-# Set labels
-ax.set_xlabel('Temperature',size=12,labelpad=15, fontweight='bold')
-ax.set_ylabel('time',size=15,labelpad=12, fontweight='bold')
-ax.set_zlabel(f'{yyy}',size=15,labelpad=12, fontweight='bold')
-ax.set_title(f'{yyy}  for {add} Redox Agent',size=25, fontweight='bold')
+apply_3d_labels(ax, f'{yyy}', f'{yyy} for {add} Redox Agent')
 # Add a colorbar
 cbar = fig.colorbar(scatter, ax=ax, pad=0.1, shrink=0.8)
-cbar.set_label(f'{yyy}')
+cbar.set_label(f'{yyy}', fontsize=CBAR_LABEL_SIZE, fontweight='bold')
+cbar.ax.tick_params(labelsize=CBAR_TICK_SIZE)
 
 # Save and show the plot
 plt.savefig(f'{yyy}_{add}_RedoxAgent.png', dpi=600, bbox_inches='tight')
@@ -189,14 +201,11 @@ ax = fig.add_subplot(111, projection='3d')
 scatter = ax.scatter(xx1,xx2,yy3, c=yy3, cmap='gist_gray', marker='o', norm=norm)
 
 
-# Set labels
-ax.set_xlabel('Temperature',size=12,labelpad=15, fontweight='bold')
-ax.set_ylabel('time',size=15,labelpad=12, fontweight='bold')
-ax.set_zlabel(f'{yyy}',size=15,labelpad=12, fontweight='bold')
-ax.set_title(f'{yyy}  for {add} Redox Agent',size=25, fontweight='bold')
+apply_3d_labels(ax, f'{yyy}', f'{yyy} for {add} Redox Agent')
 # Add a colorbar
 cbar = fig.colorbar(scatter, ax=ax, pad=0.1, shrink=0.8)
-cbar.set_label(f'{yyy}')
+cbar.set_label(f'{yyy}', fontsize=CBAR_LABEL_SIZE, fontweight='bold')
+cbar.ax.tick_params(labelsize=CBAR_TICK_SIZE)
 
 # Save and show the plot
 plt.savefig(f'{yyy}_{add}_RedoxAgent.png', dpi=600, bbox_inches='tight')
@@ -257,19 +266,16 @@ norm = plt.Normalize(yy3.min(), yy3.max())
 
 ax = fig.add_subplot(111, projection='3d')
 
-scatter = ax.scatter(xx1,xx2,yy3, c=yy3, cmap='RdYlGn_r', marker='o', norm=norm)
+scatter = ax.scatter(xx1,xx2,yy3, c=yy3, cmap='viridis', marker='o', norm=norm)
 
 
 
 
-# Set labels
-ax.set_xlabel('Temperature',size=12,labelpad=15, fontweight='bold')
-ax.set_ylabel('time',size=15,labelpad=12, fontweight='bold')
-ax.set_zlabel(f'{yyy}',size=15,labelpad=12, fontweight='bold')
-ax.set_title(f'{yyy}  for {add} Redox Agent',size=25, fontweight='bold')
+apply_3d_labels(ax, f'{yyy}', f'{yyy} for {add} Redox Agent')
 # Add a colorbar
 cbar = fig.colorbar(scatter, ax=ax, pad=0.1, shrink=0.8)
-cbar.set_label(f'{yyy}')
+cbar.set_label(f'{yyy}', fontsize=CBAR_LABEL_SIZE, fontweight='bold')
+cbar.ax.tick_params(labelsize=CBAR_TICK_SIZE)
 
 # Save and show the plot
 plt.savefig(f'{yyy}_{add}_RedoxAgent.png', dpi=600, bbox_inches='tight')
@@ -289,17 +295,14 @@ norm = plt.Normalize(yy3.min(), yy3.max())
 
 ax = fig.add_subplot(111, projection='3d')
 
-scatter = ax.scatter(xx1,xx2,yy3, c=yy3, cmap='RdYlGn_r', marker='o', norm=norm)
+scatter = ax.scatter(xx1,xx2,yy3, c=yy3, cmap='viridis', marker='o', norm=norm)
 
 
-# Set labels
-ax.set_xlabel('Temperature',size=12,labelpad=15, fontweight='bold')
-ax.set_ylabel('time',size=15,labelpad=12, fontweight='bold')
-ax.set_zlabel(f'{yyy}',size=15,labelpad=12, fontweight='bold')
-ax.set_title(f'{yyy}  for {add} Redox Agent',size=25, fontweight='bold')
+apply_3d_labels(ax, f'{yyy}', f'{yyy} for {add} Redox Agent')
 # Add a colorbar
 cbar = fig.colorbar(scatter, ax=ax, pad=0.1, shrink=0.8)
-cbar.set_label(f'{yyy}')
+cbar.set_label(f'{yyy}', fontsize=CBAR_LABEL_SIZE, fontweight='bold')
+cbar.ax.tick_params(labelsize=CBAR_TICK_SIZE)
 
 # Save and show the plot
 plt.savefig(f'{yyy}_{add}_RedoxAgent.png', dpi=600, bbox_inches='tight')
@@ -321,17 +324,14 @@ norm = plt.Normalize(yy3.min(), yy3.max())
 
 ax = fig.add_subplot(111, projection='3d')
 
-scatter = ax.scatter(xx1,xx2,yy3, c=yy3, cmap='RdYlGn_r', marker='o', norm=norm)
+scatter = ax.scatter(xx1,xx2,yy3, c=yy3, cmap='viridis', marker='o', norm=norm)
 
 
-# Set labels
-ax.set_xlabel('Temperature',size=12,labelpad=15, fontweight='bold')
-ax.set_ylabel('time',size=15,labelpad=12, fontweight='bold')
-ax.set_zlabel(f'{yyy}',size=15,labelpad=12, fontweight='bold')
-ax.set_title(f'{yyy}  for {add} Redox Agent',size=25, fontweight='bold')
+apply_3d_labels(ax, f'{yyy}', f'{yyy} for {add} Redox Agent')
 # Add a colorbar
 cbar = fig.colorbar(scatter, ax=ax, pad=0.1, shrink=0.8)
-cbar.set_label(f'{yyy}')
+cbar.set_label(f'{yyy}', fontsize=CBAR_LABEL_SIZE, fontweight='bold')
+cbar.ax.tick_params(labelsize=CBAR_TICK_SIZE)
 
 # Save and show the plot
 plt.savefig(f'{yyy}_{add}_RedoxAgent.png', dpi=600, bbox_inches='tight')
@@ -393,14 +393,11 @@ ax = fig.add_subplot(111, projection='3d')
 scatter = ax.scatter(xx1,xx2,yy3, c=yy3, cmap='cividis', marker='o', norm=norm)
 #scatter = ax.scatter(xx1,xx2,yy3, c=yy3, cmap='YlGnBu_r', marker='o', norm=norm)
 #plasma
-# Set labels
-ax.set_xlabel('Temperature',size=12,labelpad=15, fontweight='bold')
-ax.set_ylabel('time',size=15,labelpad=12, fontweight='bold')
-ax.set_zlabel(f'{yyy}',size=15,labelpad=12, fontweight='bold')
-ax.set_title(f'{yyy}  for {add} Redox Agent',size=25, fontweight='bold')
+apply_3d_labels(ax, f'{yyy}', f'{yyy} for {add} Redox Agent')
 # Add a colorbar
 cbar = fig.colorbar(scatter, ax=ax, pad=0.1, shrink=0.8)
-cbar.set_label(f'{yyy}')
+cbar.set_label(f'{yyy}', fontsize=CBAR_LABEL_SIZE, fontweight='bold')
+cbar.ax.tick_params(labelsize=CBAR_TICK_SIZE)
 
 plt.savefig(f'{yyy}_{add}_RedoxAgent.png', dpi=600, bbox_inches='tight')
 # Show the plot
@@ -423,14 +420,11 @@ scatter = ax.scatter(xx1,xx2,yy3, c=yy3, cmap='cividis', marker='o', norm=norm)
 #scatter = ax.scatter(xx1,xx2,yy3, c=yy3, cmap='YlGnBu_r', marker='o', norm=norm)
 #plasma
 
-# Set labels
-ax.set_xlabel('Temperature',size=12,labelpad=15, fontweight='bold')
-ax.set_ylabel('time',size=15,labelpad=12, fontweight='bold')
-ax.set_zlabel(f'{yyy}',size=15,labelpad=12, fontweight='bold')
-ax.set_title(f'{yyy}  for {add} Redox Agent',size=25, fontweight='bold')
+apply_3d_labels(ax, f'{yyy}', f'{yyy} for {add} Redox Agent')
 # Add a colorbar
 cbar = fig.colorbar(scatter, ax=ax, pad=0.1, shrink=0.8)
-cbar.set_label(f'{yyy}')
+cbar.set_label(f'{yyy}', fontsize=CBAR_LABEL_SIZE, fontweight='bold')
+cbar.ax.tick_params(labelsize=CBAR_TICK_SIZE)
 
 # Save and show the plot
 plt.savefig(f'{yyy}_{add}_RedoxAgent.png', dpi=600, bbox_inches='tight')
@@ -454,14 +448,11 @@ ax = fig.add_subplot(111, projection='3d')
 scatter = ax.scatter(xx1,xx2,yy3, c=yy3, cmap='cividis', marker='o', norm=norm)
 #scatter = ax.scatter(xx1,xx2,yy3, c=yy3, cmap='YlGnBu_r', marker='o', norm=norm)
 #plasma
-# Set labels
-ax.set_xlabel('Temperature',size=12,labelpad=15, fontweight='bold')
-ax.set_ylabel('time',size=15,labelpad=12, fontweight='bold')
-ax.set_zlabel(f'{yyy}',size=15,labelpad=12, fontweight='bold')
-ax.set_title(f'{yyy}  for {add} Redox Agent',size=25, fontweight='bold')
+apply_3d_labels(ax, f'{yyy}', f'{yyy} for {add} Redox Agent')
 # Add a colorbar
 cbar = fig.colorbar(scatter, ax=ax, pad=0.1, shrink=0.8)
-cbar.set_label(f'{yyy}')
+cbar.set_label(f'{yyy}', fontsize=CBAR_LABEL_SIZE, fontweight='bold')
+cbar.ax.tick_params(labelsize=CBAR_TICK_SIZE)
 
 # Save and show the plot
 plt.savefig(f'{yyy}_{add}_RedoxAgent.png', dpi=600, bbox_inches='tight')
